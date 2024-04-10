@@ -14,4 +14,6 @@ public class BotConfig {
     String botName;
     @Value("5905984080:AAGSWCoQQ1gQWogoca63ByYCKNOQOComufE")
     String botToken;
+    @Value("73f337d01e1bdcffef4be8f8e34ee388")
+    String apiKey;
 }

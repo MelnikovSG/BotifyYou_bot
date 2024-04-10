@@ -13,8 +13,6 @@ import java.util.Map;
 @Component
 public class BotService extends TelegramLongPollingBot {
 
-
-
     final BotConfig config;
     final MessegeService messegeService;
 
@@ -43,7 +41,7 @@ public class BotService extends TelegramLongPollingBot {
             UserSession userSession = userSessions.computeIfAbsent(chatId, k -> new UserSession());
 
             if(userSession.getBotState() == BotState.State.AWAITING_CITY_NAME){
-                messegeService.handleCityInput(this, chatId, message);
+                messegeService.handleCityInput(this, chatId, config.getApiKey(), message);
                 userSession.setBotState(BotState.State.DEFAULT);
             }else {
                 switch (message) {
