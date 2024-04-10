@@ -2,7 +2,6 @@ package com.BotifyYou_bot.BotifyYou_bot.service;
 
 import org.jvnet.hk2.annotations.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.ChatLocation;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -14,8 +13,9 @@ public class MessegeService {
         sendMessage(absSender, chatId, answer);
     }
 
-    public void getWeather(AbsSender absSender, Long chatId, ChatLocation location) {
-        
+    public void getWeather(AbsSender absSender, Long chatId) {
+        String question = "Смотрю ты хочешь узнать погоду, какой город интересует?";
+        sendMessage(absSender, chatId, question);
     }
 
     public void sendMessage(AbsSender absSender, Long chatId, String message) {
@@ -30,5 +30,7 @@ public class MessegeService {
         }
     }
 
-
+    public void handleCityInput(AbsSender absSender, Long chatId, String city) {
+        sendMessage(absSender, chatId, "Работаем с городом: " + city);
+    }
 }
